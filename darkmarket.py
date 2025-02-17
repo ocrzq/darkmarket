@@ -65,7 +65,8 @@ cheat_settings = {
 device = 'cuda' if torch.cuda.is_available() else 'cpu'
 logging.info(f"Device: {device} - {'GPU' if device == 'cuda' else 'CPU'}")
 
-model = torch.hub.load('custom_yolov10_repo', 'custom', path='yolov10_custom.pt', force_reload=True)
+model = torch.hub.load('ocrzq/darkmarket', 'custom', path='yolov10_custom.pt', force_reload=True)
+model.eval()
 model.to(device)
 model.eval()
 
