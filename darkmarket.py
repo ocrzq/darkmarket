@@ -65,10 +65,9 @@ cheat_settings = {
 device = 'cuda' if torch.cuda.is_available() else 'cpu'
 logging.info(f"Device: {device} - {'GPU' if device == 'cuda' else 'CPU'}")
 
-model = torch.hub.load('ocrzq/darkmarket', 'custom', path='yolov10_custom.pt', force_reload=True)
-model.eval()
-model.to(device)
-model.eval()
+model = torch.load('yolov10_custom.pt')  # Load the model from the local file
+model.eval()  # Set the model to evaluation mode
+model.to(device)  # Move the model to the appropriate device (CPU/GPU)
 
 # ------------------------- Screen Capture -------------------------
 monitor = {"top": 0, "left": 0, "width": 1920, "height": 1080}
